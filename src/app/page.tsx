@@ -12,7 +12,7 @@ export default function HomePage() {
   const [page, setPage] = useState(1);
   const [meta, setMeta] = useState<MetaData>();
   const [data, setData] = useState<IRoom[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const checkpointRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -25,7 +25,11 @@ export default function HomePage() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !loading && (!meta || page < meta.totalPages)) {
+        if (
+          entries[0].isIntersecting &&
+          !loading &&
+          (!meta || page < meta.totalPages)
+        ) {
           setPage((prevPage) => prevPage + 1);
         }
       },
@@ -45,7 +49,7 @@ export default function HomePage() {
         observer.unobserve(checkpointRef.current);
       }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
   const handleGetMoreIdeas = async () => {
@@ -112,7 +116,7 @@ export default function HomePage() {
             </>
           )}
         </div>
-        <div ref={checkpointRef} className="h-10"></div>
+        {data.length > 0 && <div ref={checkpointRef} className="h-10"></div>}
       </div>
     </div>
   );
