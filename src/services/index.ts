@@ -1,2 +1,1 @@
-export * from './blog.service';
-export * from './comment.service';
+export * from './room.service';

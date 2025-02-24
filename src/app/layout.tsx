@@ -3,7 +3,6 @@ import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import ReduxProvider from "@/providers/ReduxProvider";
 import MainLayout from "@/layouts/MainLayout";
-import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 
 const notoSans = Noto_Sans({
@@ -33,7 +32,6 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <MainLayout>{children}</MainLayout>
-            <Toaster />
           </ThemeProvider>
         </ReduxProvider>
       </body>

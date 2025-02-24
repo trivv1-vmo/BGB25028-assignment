@@ -1,12 +1,12 @@
-interface LooseObject {
+type LooseObject = {
   [key: string]: any;
 }
 
-interface LooseStringObject {
+type LooseStringObject = {
   [key: string]: string;
 }
 
-interface Meta {
+type MetaData = {
   currentPage: number;
   totalPages: number;
   totalRecords: number;

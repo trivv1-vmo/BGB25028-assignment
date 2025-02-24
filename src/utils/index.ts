@@ -1,1 +1,2 @@
-export * from './date.utils';
+export * from './format-number.utils';
+export * from './fibonacci.utils';

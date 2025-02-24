@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header>
       <div className="flex items-center justify-between py-8">
-        <Link href={PATHS.HOME} className="dark:hidden">
+        <Link href={PATHS.HOME}>
           <Image src={ImageEnum.logo} alt="Logo" width={90} height={30} />
         </Link>
         <div className="w-2/4">
