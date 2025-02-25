@@ -116,15 +116,22 @@ export default function HomePage() {
 
   return (
     <div>
-      <div className="mt-8 w-full">
-        <video className="w-full aspect-video" width="100%" height="auto" controls>
+      <div className="mt-4 md:mt-8 w-full">
+        <video
+          className="w-full aspect-video"
+          width="100%"
+          height="auto"
+          controls
+        >
           <source src={VideoEnum.video} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
 
-      <h1 className="text-2xl font-bold mt-24">More ideas and inspiration</h1>
-      <div className="mt-8 flex gap-4">
+      <h1 className="text-2xl font-bold mt-12 md:mt-24">
+        More ideas and inspiration
+      </h1>
+      <div className="mt-8 flex gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
         {LIST_MORE_IDEAS.map((item) => {
           return (
             <Button

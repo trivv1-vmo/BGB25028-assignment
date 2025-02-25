@@ -59,11 +59,11 @@ const Footer = () => {
 
           <div className="w-full sm:w-auto mb-12 lg:mb-8">
             <h3 className="text-base lg:text-lg text-primary font-semibold">Customer Service</h3>
-            <div className="mt-6 flex justify-between lg:flex-col gap-2">
+            <div className="mt-6 md:flex justify-between lg:flex-col gap-2">
               {customerService.map((item) => (
                 <Link
                   key={item.name}
-                  className="text-text text-sm lg:text-base"
+                  className="text-text text-sm lg:text-base block mb-2 md:mb-0"
                   href={item.path}
                 >
                   {item.name}

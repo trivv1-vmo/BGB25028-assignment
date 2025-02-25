@@ -23,7 +23,8 @@ const RoomItem = ({ data }: RoomItemProps) => {
 
   useEffect(() => {
     handleGetAllProducts();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   const handleGetAllProducts = async () => {
     try {
@@ -91,7 +92,8 @@ const RoomItem = ({ data }: RoomItemProps) => {
                   : "opacity-0 group-hover:opacity-100"
               }`}
             >
-              {data?.products && data?.products.length > 0 &&
+              {data?.products &&
+                data?.products.length > 0 &&
                 data?.products.map((product, index) => (
                   <Tooltip
                     key={index}
@@ -106,9 +108,11 @@ const RoomItem = ({ data }: RoomItemProps) => {
                           top: `${product?.dotCoordinates.y}%`,
                           left: `${product?.dotCoordinates.x}%`,
                         }}
+                        onClick={() => setIsTooltipOpen((prev) => !prev)}
+                        onTouchStart={() => setIsTooltipOpen((prev) => !prev)}
                       >
-                        <div className="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center">
-                          <div className="w-3 h-3 bg-white rounded-full flex items-center justify-center"></div>
+                        <div className="w-4 h-4 md:w-6 md:h-6 bg-gray-400 rounded-full flex items-center justify-center">
+                          <div className="w-2 h-2 md:w-3 md:h-3 bg-white rounded-full flex items-center justify-center"></div>
                         </div>
                       </div>
                     </TooltipTrigger>
@@ -119,19 +123,23 @@ const RoomItem = ({ data }: RoomItemProps) => {
                     >
                       {productPrices[product.id] ? (
                         <>
-                          <p className="mt-1 text-gray-800 truncate font-bold text-base">
-                            Product: {productPrices[product.id]?.productName || "-"}
+                          <p className="mt-1 text-gray-800 truncate font-bold text-sm md:text-base">
+                            Product:{" "}
+                            {productPrices[product.id]?.productName || "-"}
                           </p>
                           <p className="mt-1 text-gray-600 text-xs truncate">
-                            Description {productPrices[product.id]?.description || "-"}
+                            Description{" "}
+                            {productPrices[product.id]?.description || "-"}
                           </p>
                           <p className="mt-1 text-gray-900 font-bold">
-                            Price: {productPrices[product.id]?.price ? formatNumber(productPrices[product.id]?.price) : "-"}$
+                            Price:{" "}
+                            {productPrices[product.id]?.price
+                              ? formatNumber(productPrices[product.id]?.price)
+                              : "-"}
+                            $
                           </p>
                           <div className="flex justify-center mt-2 w-full">
-                            <Button size="sm">
-                              View Product
-                            </Button>
+                            <Button size="sm">View Product</Button>
                           </div>
                         </>
                       ) : (

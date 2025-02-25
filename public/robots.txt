@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://fecodechallenge.codebaseperfect.site
-
-# Sitemaps
-Sitemap: https://fecodechallenge.codebaseperfect.site/sitemap.xml
