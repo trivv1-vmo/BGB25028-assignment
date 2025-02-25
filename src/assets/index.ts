@@ -5,3 +5,7 @@ export const ImageEnum = {
   wishList: "/images/wishlist-icon.svg",
   shoppingBag: "/images/shopping-bag-icon.svg",
 };
+
+export const VideoEnum = {
+  video: "/videos/intro.mp4",
+};

@@ -1,5 +1,6 @@
 "use client";
 
+import { VideoEnum } from "@/assets";
 import RoomItem from "@/components/RoomItem";
 import RoomItemAds from "@/components/RoomItemAds";
 import RoomItemSkeleton from "@/components/RoomItemSkeleton";
@@ -115,8 +116,14 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold">More ideas and inspiration</h1>
+      <div className="mt-8 w-full">
+        <video className="w-full aspect-video" width="100%" height="auto" controls>
+          <source src={VideoEnum.video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
+      <h1 className="text-2xl font-bold mt-24">More ideas and inspiration</h1>
       <div className="mt-8 flex gap-4">
         {LIST_MORE_IDEAS.map((item) => {
           return (
