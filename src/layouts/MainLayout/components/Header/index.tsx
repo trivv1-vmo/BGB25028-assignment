@@ -2,7 +2,6 @@ import { ImageEnum } from "@/assets";
 import { PATHS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import SheetMenu from "./SheetMenu";
 import InputSearch from "./InputSearch";
 
 const Header = () => {

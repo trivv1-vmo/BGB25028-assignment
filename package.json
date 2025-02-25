@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "start": "PORT=2213 next start",
+    "start": "PORT=2214 next start",
     "lint": "next lint"
   },
   "dependencies": {
