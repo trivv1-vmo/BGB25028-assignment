@@ -1,5 +1,5 @@
 export const ImageEnum = {
-  logo: "/images/logo.svg",
+  logo: "/images/logo.png",
   logo404: "/images/404.svg",
   user: "/images/user-icon.svg",
   wishList: "/images/wishlist-icon.svg",

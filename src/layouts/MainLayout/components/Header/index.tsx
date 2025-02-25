@@ -10,7 +10,7 @@ const Header = () => {
     <header>
       <div className="flex items-center justify-between py-8">
         <Link href={PATHS.HOME}>
-          <Image src={ImageEnum.logo} alt="Logo" width={90} height={30} />
+          <Image src={ImageEnum.logo} alt="Logo" width={100} height={30} />
         </Link>
         <div className="w-2/4">
           <InputSearch />
@@ -31,9 +31,9 @@ const Header = () => {
             />
           </Link>
         </div>
-        <div className="block lg:hidden">
+        {/* <div className="block lg:hidden">
           <SheetMenu />
-        </div>
+        </div> */}
       </div>
     </header>
   );

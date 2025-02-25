@@ -92,9 +92,9 @@ const RoomItem = ({ data }: RoomItemProps) => {
               }`}
             >
               {data?.products && data?.products.length > 0 &&
-                data?.products.map((product) => (
+                data?.products.map((product, index) => (
                   <Tooltip
-                    key={product.id}
+                    key={index}
                     defaultOpen={false}
                     delayDuration={0}
                     onOpenChange={(open) => setIsTooltipOpen(open)}

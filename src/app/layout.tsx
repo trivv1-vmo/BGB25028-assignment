@@ -12,9 +12,9 @@ const notoSans = Noto_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "IKEA",
-  description: "Shop for home furnishing solutions - IKEA Saudi - IKEA",
-  keywords: ["Home", "Shop", "IKEA", "furniture", "Saudi Arabia"],
+  title: "Code Challenge",
+  description: "Code Challenge Shop",
+  keywords: ["Home", "Shop", "Code Challenge"],
 };
 
 export default function RootLayout({

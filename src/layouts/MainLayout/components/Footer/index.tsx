@@ -15,13 +15,15 @@ const quickLinks = [
   { name: "Contact", path: "#" },
 ];
 
-const categories = [
-  { name: "Lifestyle", path: "#" },
-  { name: "Technology", path: "#" },
-  { name: "Travel", path: "#" },
-  { name: "Business", path: "#" },
-  { name: "Economy", path: "#" },
-  { name: "Sports", path: "#" },
+const customerService = [
+  { name: "FAQ", path: "#" },
+  { name: "Delivery", path: "#" },
+  { name: "Return policy", path: "#" },
+  { name: "Track your order", path: "#" },
+  { name: "Our service", path: "#" },
+  { name: "Share your feedback", path: "#" },
+  { name: "Space parts", path: "#" },
+  { name: "Product guarantees", path: "#" },
 ];
 
 const Footer = () => {
@@ -37,7 +39,7 @@ const Footer = () => {
               enim ad minim veniam
             </p>
             <p className="mt-6 text-secondary text-sm lg:text-base">
-              <span className="font-semibold text-text">Email</span>: info@jstemplate.net
+              <span className="font-semibold text-text">Email</span>: info@gmail.com
             </p>
             <p className="mt-1 text-secondary text-sm lg:text-base">
               <span className="font-semibold text-text">Phone</span>: 880 123 456 789
@@ -56,15 +58,15 @@ const Footer = () => {
           </div>
 
           <div className="w-full sm:w-auto mb-12 lg:mb-8">
-            <h3 className="text-base lg:text-lg text-primary font-semibold">Category</h3>
+            <h3 className="text-base lg:text-lg text-primary font-semibold">Customer Service</h3>
             <div className="mt-6 flex justify-between lg:flex-col gap-2">
-              {categories.map((category) => (
+              {customerService.map((item) => (
                 <Link
-                  key={category.name}
+                  key={item.name}
                   className="text-text text-sm lg:text-base"
-                  href={category.path}
+                  href={item.path}
                 >
-                  {category.name}
+                  {item.name}
                 </Link>
               ))}
             </div>
@@ -76,7 +78,7 @@ const Footer = () => {
               Weekly Newsletter
             </h3>
             <p className="text-secondary text-center mt-2 text-sm lg:text-base">
-              Get blog articles and offers via email
+              Get news articles and offers via email
             </p>
             <form className="mt-8">
               <div className="border rounded-sm border-input flex items-center gap-2 px-4 py-3">
@@ -100,7 +102,6 @@ const Footer = () => {
         <Divider className="mb-4" />
         <div className="flex flex-col lg:flex-row items-center justify-between py-9">
           <Image className="dark:hidden" src={ImageEnum.logo} alt="Logo" width={158} height={30} />
-          <Image className="hidden dark:block" src={ImageEnum.logoDark} alt="Logo" width={158} height={30} />
           <div className="flex items-center gap-4 mt-4 lg:mt-0">
             <Link href="#" className="text-text text-sm lg:text-base">
               Terms & Use

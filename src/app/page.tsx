@@ -1,10 +1,12 @@
 "use client";
 
 import RoomItem from "@/components/RoomItem";
+import RoomItemAds from "@/components/RoomItemAds";
 import RoomItemSkeleton from "@/components/RoomItemSkeleton";
 import { Button } from "@/components/ui/button";
 import { LIST_MORE_IDEAS } from "@/constants";
 import { roomService } from "@/services";
+import { createArray, fibonacciInRange } from "@/utils";
 import { useEffect, useRef, useState } from "react";
 
 export default function HomePage() {
@@ -59,16 +61,41 @@ export default function HomePage() {
       setLoading(true);
       const res = await roomService.getRoomList({
         type: selected,
-        limit: 9,
+        limit: handleCalculateLimit(page),
         page: page,
       });
 
       if (res.data) {
-        if (page > 1) {
-          setData([...data, ...res.data.data]);
-        } else {
-          setData(res.data.data);
-        }
+        const startNumber = 9 * (page - 1);
+        const endNumber = 9 * page - 1;
+        const fibonacciIndexes = fibonacciInRange(startNumber, endNumber);
+        const arrayNumber = createArray(startNumber, endNumber);
+        const customData: IRoom[] = page == 1 ? [] : [...data];
+
+        let count = 0;
+
+        arrayNumber.forEach((_, index) => {
+          if (fibonacciIndexes.includes(arrayNumber[index])) {
+            customData.push({
+              id: `ads-${arrayNumber[index]}`,
+              altText: `ads-${arrayNumber[index]}`,
+              type: "ads",
+              _id: null,
+              url: null,
+              index: null,
+              createdAt: null,
+              updatedAt: null,
+              __v: null,
+              products: null,
+            });
+          } else {
+            if (res.data.data[count]) {
+              customData.push(res.data.data[count]);
+              count++;
+            }
+          }
+        });
+        setData(customData);
 
         setMeta(res.data.meta);
       }
@@ -77,6 +104,13 @@ export default function HomePage() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleCalculateLimit = (page: number) => {
+    const startNumber = 9 * (page - 1) + 1;
+    const endNumber = 9 * page;
+
+    return 9 - fibonacciInRange(startNumber, endNumber).length;
   };
 
   return (
@@ -105,8 +139,12 @@ export default function HomePage() {
       </div>
       <div className="mt-10">
         <div className="Grid-module_grid3">
-          {data.map((item) => {
-            return <RoomItem key={item.id} data={item} />;
+          {data.map((item, index) => {
+            if (item?.type === "ads") {
+              return <RoomItemAds key={index} data={item} />;
+            } else {
+              return <RoomItem key={index} data={item} />;
+            }
           })}
           {loading && (
             <>
